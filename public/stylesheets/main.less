@@ -1,0 +1,295 @@
+/*
+Lakshay Verma : CODE SPRING
+*/
+// Site Colors
+@COLOR1: #ffffff;
+@COLOR2: #000000;
+
+@COLOR3: #096690;
+@COLOR4: #0090f0;
+
+
+
+@COLOR5: #363636;
+@COLOR6: #990000;
+// Programatic Variables deduced using Site Colors
+@background: @COLOR1;
+@foreground: @COLOR2;
+
+@link : @COLOR3;
+@linkHighlight: @COLOR4;
+
+@quote: @COLOR5;
+@danger: @COLOR6;
+// MIXINS
+
+.button{
+    clear: both;
+    width: 400px;
+    padding: 1em 2em;
+    background: lighten(@link, 20%);
+    color: @background;
+    border: 1px solid @link;
+    border-radius: 3px;
+    text-align: center;
+    &.small{
+        width: auto;
+        font-size: .7em;
+        padding: .4em;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &:hover{
+        background: linear-gradient(lighten(@link, 40%), @linkHighlight, lighten(@link, 40%));
+        color: white;
+    }
+    &:active{
+        background: linear-gradient(lighten(@link, 20%)2%, @linkHighlight, lighten(@link, 20%) 98%);
+        box-shadow: 1px 1px darken(@link, 10%),1px 1px darken(@link, 20%) inset;
+    }
+}
+
+// Borders
+.border(@type: all, @clr: @foreground, @width: thin, @style: solid) when (@type = all){
+    border: @width @style @clr;
+}
+.border(@type, @clr: @foreground, @width: thin, @style: solid) when (@type = top){
+    border-top: @width @style @clr;
+}
+.border(@type, @clr: @foreground, @width: thin, @style: solid) when (@type = right){
+    border-right: @width @style @clr;
+}
+.border(@type, @clr: @foreground, @width: thin, @style: solid) when (@type = bottom){
+    border-bottom: @width @style @clr;
+}
+.border(@type, @clr: @foreground, @width: thin, @style: solid) when (@type = left){
+    border-left: @width @style @clr;
+}
+
+.banner(@base: @COLOR4){
+    background: linear-gradient(@base ,lighten(@base, 10%));
+    color: @COLOR1; 
+    padding: 2em;
+}
+
+.NavigationList(@normal: @link, @hover: @linkHighlight){
+    list-style: none;
+    li{
+        display: inline-block;
+        a,p{
+            display: inline-block;
+            width: 100px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        a{
+            color: @normal;
+            border-radius: 2px;
+        }
+        &.selected, & a:hover{
+            background: linear-gradient(@hover, lighten(@hover, 15%));
+            color: @background;
+            .border(all, lighten(@hover, 20%));
+            border-style: outset;
+            padding: 9px;
+            text-shadow: 0px 0px 1px @foreground;
+            box-shadow: 0 1px 0 @foreground;
+            &:active{
+                box-shadow: 0 -1px 0 black;
+                text-shadow: 0px 0px 1px black inset;
+                border-style: inset;
+                background: linear-gradient(lighten(@hover, 30%), lighten(@hover, 10%));
+            }
+        }
+    }
+}
+
+html{
+    background: @background;
+    color: @foreground;
+    body{
+        margin: 2px;
+        a{
+            text-decoration: none;
+            color: @link;
+            &.button{
+                margin-top: 10px;
+            }
+            &:hover{
+                color: @linkHighlight;
+                text-decoration: underline;
+            }
+            &:active{
+                text-decoration: none;
+            }
+        }
+        p.message{
+            font-style: italic;
+            font-family: 'Times New Roman';
+            padding: 1em;
+            &:before, &:after{
+                content: "\"";
+            }
+            .border;
+        }
+        header{
+            .banner(darken(@COLOR4, 20%));
+            hgroup{
+                float: left;
+            }
+            nav{
+                float: right;
+                ul{
+                    .NavigationList(@background);
+                }
+            }
+            &:after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+        }
+        div#main{
+            padding: 1em;
+            section{
+                h2{
+
+                }
+                h4{
+                }
+                blockquote{
+                    &:before, &:after{
+                        content: "'";
+                    }
+                    color: @quote;
+                    margin: 0;
+                    margin-bottom: 1em;
+                    line-height: 1.4em;
+                    padding: 1em 0 1em 2em;
+                    font-size: .9em;
+                    font-family: 'Calibri';
+                    font-weight: 100;
+                    font-style: italic;
+                    .border(all, @foreground, thin);
+                    .border(left, @foreground, thick, double);
+                }
+                ul{
+                    &.tasks{
+                        list-style : disc;
+                        & > li{
+                            margin: 10px;
+                            span:not(:first-child){
+                                font-size: .8em;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                    &.stages{
+                        text-align: center;
+                        .NavigationList;
+                        .border(all, @linkHighlight);
+                    }
+                    &.projects{
+                        color: @linkHighlight;
+                        list-style: square;
+                    }
+                    li{
+                        position : relative;
+                        span a{
+                            &:before{
+                                content: "(";
+                            }
+                            &:after{
+                                content: ")";
+                            }
+                        }
+                        h3{
+                            font-weight: 400;
+                            font-family: Tahoma;
+                            text-transform: uppercase;
+                            font-style: italic;
+                            margin: 0;
+                        }
+                        small em{
+                            color: @linkHighlight;
+                            font-size: .9em;
+                            text-transform: lowercase;
+                            font-style: italic;
+                        }
+                    }
+                }
+            }
+
+            form{
+                width: 480px;
+                margin: 3em auto;
+                padding: 1em;
+                .border(all, @linkHighlight);
+                h3{
+                    background: @quote;
+                    color: @background;
+                    text-shadow: 0px 1px @foreground;
+                    padding: .4em;
+                    text-align: center;
+                }
+                label{
+                    display: block;
+                    padding: 1em 2em;
+                    margin: 1em;
+                    span{
+                        color: @link;
+                        float: left;
+                        &:after{
+                            content: ":";
+                        }
+                    }
+                    input, textarea, select{
+                        display: inline-block;
+                        float: right;
+                        width: 20em;
+                        padding-left: 1em;
+                        vertical-align: middle;
+                        .border(all, @link, 1px, solid);
+                        border-radius: 3px;
+                    }
+                    input[type="submit"]{
+                        .button;
+                    }
+                }
+                &:after{
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+            }
+
+            *.Failed{
+                &> p, &>span, em, &>h2, &>h3, &>h4, &>blockquote{
+                    color: @danger;
+                }
+            }
+            
+            p.message{
+                strong.Failed{
+                    color: @danger;
+                }
+            }
+        }
+        
+        aside{
+            .border(all, @link, thick);
+            padding: .5em 2em;
+            h3{
+                .border(bottom, @link, thin);
+            }
+            ul{
+                list-style: square inside;
+            }
+        }
+        footer{
+            .banner(darken(@COLOR4, 20%));
+        }
+    }
+}

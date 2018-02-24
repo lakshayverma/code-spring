@@ -1,0 +1,264 @@
+/* 
+Lakshay Verma : CODE SPRING
+*/
+
+@background : #ffffff;
+@color : #0363fc;
+@background2 : #ffffff;
+@color2 : #066493;
+/*
+@background : #030303;
+@color : #069909;
+@background2 : #090909;
+@color2 : #c9c9ff;
+*/
+
+/*
+@background : #363600;
+@color : #ffcc99;
+@background2 : darken(@background, 30%);
+@color2 : darken(spin(@color, 30%), 50%);
+*/
+
+/*
+@background : #363600;
+@color : #ffcc99;
+@background2 : #696900;
+@color2 : #f9f900;
+*/
+
+.border(@type: all, @clr: @color, @width: thin, @style: solid) when (@type = all){
+    border: @width @style @clr;
+}
+.border(@type: all, @clr: @color, @width: thin, @style: solid) when (@type = top){
+    border-top: @width @style @clr;
+}
+.border(@type: all, @clr: @color, @width: thin, @style: solid) when (@type = right){
+    border-right: @width @style @clr;
+}
+.border(@type: all, @clr: @color, @width: thin, @style: solid) when (@type = bottom){
+    border-bottom: @width @style @clr;
+}
+.border(@type: all, @clr: @color, @width: thin, @style: solid) when (@type = left){
+    border-left: @width @style @clr;
+}
+
+
+.Banner(@bg: @background2, @clr: @color2){
+    background: @bg;
+    color: @clr;
+    .border(top, @clr);
+    .border(bottom, @clr);
+    padding: 10px;
+}
+.NavList(@clr: lighten(@color2, 40%), @highlight: darken(@color2, 40%)){
+    list-style: none;
+    li{
+        margin: 5px;
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        *{
+            padding: 10px;
+            display: block;
+            color: @clr;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+        &:hover{
+            a{
+                padding: 9px;
+                color: @highlight;
+                .border(all,@highlight);
+            }
+        }
+    }
+}
+ul.stages{
+    .NavList(@color2,@color);
+    li.stage.selected p{
+        background: @color;
+        color: @background;
+        padding: 9px;
+        .border;
+    }
+}
+
+ul.tasks{
+    list-style: none;
+    & > li{
+        .border(all,@color2);
+        margin: 10px;
+        padding: 10px;
+    }
+    span:first-child:after{
+        content: ":";
+    }
+    span:nth-of-type(2){
+        text-transform: lowercase;
+        font-family: monospace;
+        font-size: .9em;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    h3{
+        font-size: 1.3em;
+        text-transform: uppercase;
+        color: @color2;
+        margin: 0;
+        padding: 5px;
+    }
+}
+li.Failed h3, li.Failed a small{
+    color: RED;
+}
+blockquote{
+    clear: both;
+    margin: 10px 0;
+    padding: 5px;
+    min-height: 50px;
+    max-width: 250px;
+    font-style: italic;
+    font-size: .9em;
+    color: #c9c9c9;
+    overflow: hidden;
+    .border(all, #c9c9c9,thin, outset);
+    .border(left, #c9c9c9, thick, double);
+    &:before, &:after{
+        content: "'";
+    }
+}
+a{
+    color: darken(@color2, 20%);
+    font-style: italic;
+    font-weight: 400;
+    text-decoration: none;
+    &:hover{
+        color: lighten(@color2, 20%);
+    }
+}
+
+html{
+    background: @background;
+}
+
+body{
+    /*    width: 940px;
+        margin: 0 auto;
+        padding: 0px 10px;
+        background: lighten(@background, 5%);*/
+    color: @color;
+}
+header{
+    .Banner(@background2);
+    hgroup{
+        float: left;
+        h1{
+            margin-bottom: 0;
+        }
+        h3{
+            margin-top: 0;
+        }
+    }
+    nav{
+        float: right;
+        ul{
+            .NavList(darken(@color2, 10%), lighten(@color2, 30%));
+        }
+    }
+    &:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+div#main{
+    margin: 10px auto;
+}
+section{    
+    width: 920px;
+    padding: 10px;
+    margin: 10px auto;
+    h2,h4{
+        padding: 10px;
+        text-align: left;
+    }
+    .border(all,@color2);
+    border-radius: 10px;
+}
+form{
+    width: 480px;
+    opacity: .1;
+    background: darken(@background2, 10%);
+    box-shadow: 0px 0px 10px @color, 0px 0px 5px @color;
+    .border;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 10px;
+    h3{
+        padding-bottom: 10px;
+        .border(bottom);
+    }
+    label{
+        display: block;
+        margin: 10px;
+        span{
+            float: left;
+            text-align: right;
+        }
+        span:after{
+            content: ":";
+        }
+        input:not([type="submit"]), select, textArea{
+            float: right;
+            border-radius: 5px;
+            padding: 5px;
+            width: 250px;
+            border-style: solid;
+        }
+        input[type="submit"]{
+            display: block;
+            margin: 0 auto;
+            width: 440px;
+            background: @color;
+            color: @background;
+            padding: 5px;
+            text-transform: lowercase;
+            font-style: italic;
+            .border(all, white);
+            border-radius: 5px;
+
+            &:hover{
+                background: linear-gradient(@color, lighten(@color,20%));
+                .border(all, darken(@color, 20%));
+            }
+            &:active{
+                background: linear-gradient(lighten(@color,20%), @color);
+                .border(all, darken(@color, 20%));
+            }
+        }
+        &:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+    transition: opacity .5s;
+    &:hover{
+        opacity: 1;
+        *{
+            display: block;
+        }
+    }
+    *:not(h3){
+        display: none;
+    }
+}
+footer{
+    .Banner;
+}

@@ -1,0 +1,298 @@
+/*
+Lakshay Verma : CODE SPRING
+*/
+.button {
+  clear: both;
+  width: 400px;
+  padding: 1em 2em;
+  background: #0faaf0;
+  color: #ffffff;
+  border: 1px solid #096690;
+  border-radius: 3px;
+  text-align: center;
+}
+.button.small {
+  width: auto;
+  font-size: .7em;
+  padding: .4em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.button:hover {
+  background: linear-gradient(#6fccf6, #0090f0, #6fccf6);
+  color: white;
+}
+.button:active {
+  background: linear-gradient(#0faaf0 2%, #0090f0, #0faaf0 98%);
+  box-shadow: 1px 1px #064460, 1px 1px #032230 inset;
+}
+html {
+  background: #ffffff;
+  color: #000000;
+}
+html body {
+  margin: 2px;
+}
+html body a {
+  text-decoration: none;
+  color: #096690;
+}
+html body a.button {
+  margin-top: 10px;
+}
+html body a:hover {
+  color: #0090f0;
+  text-decoration: underline;
+}
+html body a:active {
+  text-decoration: none;
+}
+html body p.message {
+  font-style: italic;
+  font-family: 'Times New Roman';
+  padding: 1em;
+  border: thin solid #000000;
+}
+html body p.message:before,
+html body p.message:after {
+  content: "\"";
+}
+html body header {
+  background: linear-gradient(#00538a, #0071bd);
+  color: #ffffff;
+  padding: 2em;
+}
+html body header hgroup {
+  float: left;
+}
+html body header nav {
+  float: right;
+}
+html body header nav ul {
+  list-style: none;
+}
+html body header nav ul li {
+  display: inline-block;
+}
+html body header nav ul li a,
+html body header nav ul li p {
+  display: inline-block;
+  width: 100px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+html body header nav ul li a {
+  color: #ffffff;
+  border-radius: 2px;
+}
+html body header nav ul li.selected,
+html body header nav ul li a:hover {
+  background: linear-gradient(#0090f0, #3eb2ff);
+  color: #ffffff;
+  border: thin solid #57bcff;
+  border-style: outset;
+  padding: 9px;
+  text-shadow: 0px 0px 1px #000000;
+  box-shadow: 0 1px 0 #000000;
+}
+html body header nav ul li.selected:active,
+html body header nav ul li a:hover:active {
+  box-shadow: 0 -1px 0 black;
+  text-shadow: 0px 0px 1px black inset;
+  border-style: inset;
+  background: linear-gradient(#8ad0ff, #24a7ff);
+}
+html body header:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+html body div#main {
+  padding: 1em;
+}
+html body div#main section blockquote {
+  color: #363636;
+  margin: 0;
+  margin-bottom: 1em;
+  line-height: 1.4em;
+  padding: 1em 0 1em 2em;
+  font-size: .9em;
+  font-family: 'Calibri';
+  font-weight: 100;
+  font-style: italic;
+  border: thin solid #000000;
+  border-left: thick double #000000;
+}
+html body div#main section blockquote:before,
+html body div#main section blockquote:after {
+  content: "'";
+}
+html body div#main section ul.tasks {
+  list-style: disc;
+}
+html body div#main section ul.tasks > li {
+  margin: 10px;
+}
+html body div#main section ul.tasks > li span:not(:first-child) {
+  font-size: .8em;
+  text-transform: uppercase;
+}
+html body div#main section ul.stages {
+  text-align: center;
+  list-style: none;
+  border: thin solid #0090f0;
+}
+html body div#main section ul.stages li {
+  display: inline-block;
+}
+html body div#main section ul.stages li a,
+html body div#main section ul.stages li p {
+  display: inline-block;
+  width: 100px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+html body div#main section ul.stages li a {
+  color: #096690;
+  border-radius: 2px;
+}
+html body div#main section ul.stages li.selected,
+html body div#main section ul.stages li a:hover {
+  background: linear-gradient(#0090f0, #3eb2ff);
+  color: #ffffff;
+  border: thin solid #57bcff;
+  border-style: outset;
+  padding: 9px;
+  text-shadow: 0px 0px 1px #000000;
+  box-shadow: 0 1px 0 #000000;
+}
+html body div#main section ul.stages li.selected:active,
+html body div#main section ul.stages li a:hover:active {
+  box-shadow: 0 -1px 0 black;
+  text-shadow: 0px 0px 1px black inset;
+  border-style: inset;
+  background: linear-gradient(#8ad0ff, #24a7ff);
+}
+html body div#main section ul.projects {
+  color: #0090f0;
+  list-style: square;
+}
+html body div#main section ul li {
+  position: relative;
+}
+html body div#main section ul li span a:before {
+  content: "(";
+}
+html body div#main section ul li span a:after {
+  content: ")";
+}
+html body div#main section ul li h3 {
+  font-weight: 400;
+  font-family: Tahoma;
+  text-transform: uppercase;
+  font-style: italic;
+  margin: 0;
+}
+html body div#main section ul li small em {
+  color: #0090f0;
+  font-size: .9em;
+  text-transform: lowercase;
+  font-style: italic;
+}
+html body div#main form {
+  width: 480px;
+  margin: 3em auto;
+  padding: 1em;
+  border: thin solid #0090f0;
+}
+html body div#main form h3 {
+  background: #363636;
+  color: #ffffff;
+  text-shadow: 0px 1px #000000;
+  padding: .4em;
+  text-align: center;
+}
+html body div#main form label {
+  display: block;
+  padding: 1em 2em;
+  margin: 1em;
+}
+html body div#main form label span {
+  color: #096690;
+  float: left;
+}
+html body div#main form label span:after {
+  content: ":";
+}
+html body div#main form label input,
+html body div#main form label textarea,
+html body div#main form label select {
+  display: inline-block;
+  float: right;
+  width: 20em;
+  padding-left: 1em;
+  vertical-align: middle;
+  border: 1px solid #096690;
+  border-radius: 3px;
+}
+html body div#main form label input[type="submit"] {
+  clear: both;
+  width: 400px;
+  padding: 1em 2em;
+  background: #0faaf0;
+  color: #ffffff;
+  border: 1px solid #096690;
+  border-radius: 3px;
+  text-align: center;
+}
+html body div#main form label input[type="submit"].small {
+  width: auto;
+  font-size: .7em;
+  padding: .4em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+html body div#main form label input[type="submit"]:hover {
+  background: linear-gradient(#6fccf6, #0090f0, #6fccf6);
+  color: white;
+}
+html body div#main form label input[type="submit"]:active {
+  background: linear-gradient(#0faaf0 2%, #0090f0, #0faaf0 98%);
+  box-shadow: 1px 1px #064460, 1px 1px #032230 inset;
+}
+html body div#main form:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+html body div#main *.Failed > p,
+html body div#main *.Failed > span,
+html body div#main *.Failed em,
+html body div#main *.Failed > h2,
+html body div#main *.Failed > h3,
+html body div#main *.Failed > h4,
+html body div#main *.Failed > blockquote {
+  color: #990000;
+}
+html body div#main p.message strong.Failed {
+  color: #990000;
+}
+html body aside {
+  border: thick solid #096690;
+  padding: .5em 2em;
+}
+html body aside h3 {
+  border-bottom: thin solid #096690;
+}
+html body aside ul {
+  list-style: square inside;
+}
+html body footer {
+  background: linear-gradient(#00538a, #0071bd);
+  color: #ffffff;
+  padding: 2em;
+}
